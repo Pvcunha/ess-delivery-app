@@ -25,6 +25,7 @@ sudo npm install
 cd ..
 cd server
 sudo npm install
+npm i ts-node nodemon -D
 ```
 ### Rodando o projeto
 Iniciar o servidor
