@@ -1,0 +1,47 @@
+<table>
+  <tr>
+     <td><label>Name </label></td>
+     <td><input id="what" [(ngModel)]="coupon.name" ></td>
+     <td><button id="register-coupon" (click)="createCoupon(coupon)">Adicionar</button></td>
+  </tr>
+  <tr>
+     <td><label>Product </label></td>
+     <td><input id="coupon-product-input" [(ngModel)]="coupon.product" ></td>
+  </tr>
+  <tr>
+     <td><label>discount </label></td>
+     <td><input id="coupon-discount-input" type="number" [(ngModel)]="coupon.discount" ></td>
+  </tr>
+  <tr>
+     <td><label>status </label></td>
+     <td><input id="coupon-status-input" [(ngModel)]="coupon.status" ></td>
+  </tr>
+  <tr>
+    <td><label>begin </label></td>
+    <td><input id="coupon-begin-input" [(ngModel)]="coupon.begin" ></td>
+  </tr>
+  <tr>
+    <td><label>end </label></td>
+    <td><input id="coupon-end-input" [(ngModel)]="coupon.end" ></td>
+  </tr>
+  </table>
+  
+  <table>
+  <tr *ngIf="coupons.length > 0">
+     <th>Name</th>
+     <th>Product</th>
+     <th>discount</th>
+     <th>status</th>
+     <th>begin</th>
+     <th>end</th>
+  </tr>
+  <tr *ngFor="let coupon of coupons">
+     <td id="coupon-{{coupon.name}}-{{coupon.product}}-{{coupon.discount}}-{{coupon.status}}">{{coupon.name}}</td>
+     <td>{{coupon.product}}</td>
+     <td>{{coupon.discount}}</td>
+     <td>{{coupon.status}}</td>
+     <td>{{coupon.begin}}</td>
+     <td>{{coupon.end}}</td>
+  </tr>
+  </table>
+  

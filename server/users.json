@@ -1,0 +1,79 @@
+[{
+    "name": "Mileto",
+    "id": "578dbdea",
+    "orders": [{
+        "id": "2787c166",
+        "products": [{
+            "name": "Cheddar Méquimelt",
+            "price": 12
+        }],
+        "amount": 6,
+        "restaurant": "Mequi",
+        "coupon": {
+            "id": "388ac565",
+            "name": "CHEDINHA50",
+            "adm": false,
+            "minValue": 12,
+            "product": "Big Méqui",
+            "discount": 0.5,
+            "status": "Ativo",
+            "begin": "21:00-02/04/2022",
+            "end": "21:00-06/04/2022"
+        }
+    }]
+}, {
+    "name": "Mateus",
+    "id": "5e9551e1",
+    "orders": [{
+        "id": "e78ac3ee",
+        "products": [{
+            "name": "Méqui Fritas",
+            "price": 10
+        }, {
+            "name": "Big Méqui",
+            "price": 15
+        }, {
+            "name": "Cheddar Méquimelt",
+            "price": 12
+        }],
+        "amount": 25.9,
+        "restaurant": "Mequi",
+        "coupon": {
+            "id": "388ac565",
+            "name": "30%OFF",
+            "adm": false,
+            "minValue": 15,
+            "product": "Big Méqui",
+            "discount": 0.3,
+            "status": "Ativo",
+            "begin": "21:00-02/04/2022",
+            "end": "21:00-06/04/2022"
+        }
+    }]
+}, {
+    "name": "Zenio",
+    "id": "11a84677",
+    "orders": [{
+        "id": "11b15658",
+        "products": [{
+            "name": "Big Méqui",
+            "price": 15
+        }, {
+            "name": "Big Méqui",
+            "price": 15
+        }],
+        "amount": 15,
+        "restaurant": "Mequi",
+        "coupon": {
+            "id": "399ab235",
+            "name": "2BIGMEQUIPOR1",
+            "adm": false,
+            "minValue": 15,
+            "product": "Big Méqui",
+            "discount": 0.5,
+            "status": "Ativo",
+            "begin": "21:00-02/04/2022",
+            "end": "21:00-06/04/2022"
+        }
+    }]
+}]
