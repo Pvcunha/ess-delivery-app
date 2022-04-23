@@ -2,9 +2,12 @@ import { Router } from 'express';
 import { UserService } from './src/user-service';
 import * as fs from 'fs';
 import { Order } from './src/users';
+import EmailService from './src/email-service'
+
 const routes = Router();
 
 var usersService: UserService = new UserService();
+var emailService: EmailService = new EmailService();
 
 fs.readFile("users.json", "utf-8", (err, data) => {
   if(err){
@@ -16,6 +19,10 @@ fs.readFile("users.json", "utf-8", (err, data) => {
 
 // ----------------------------------------------------------------
 /// ROTAS DE USUÁRIOS
+
+routes.get('/users', (req, res) => {
+  res.send(usersService.getUsers());
+})
 
 // RETORNA OS PEDIDOS DE UM USUÁRIO
 routes.get('/user/:id/orders', function(req, res){
@@ -52,6 +59,28 @@ routes.post('/user/:id/orders', function(req, res){
   } catch (err) {
     const { message } = err;
     res.status(400).send({ message })
+  }
+});
+
+// Envia email
+routes.get('/order/confirm/:userid', async (req, res) => {
+  let userid = req.params.userid;
+  let order: Order = <Order> req.body;
+
+  const user = usersService.getUserById(userid);
+  
+  let msg: string = `Hi ${user.name}, your order has been confirmed`;
+  try {
+    var info = await emailService.sendMail(
+      {name: user.name, email: user.email },
+      {subject: 'Order confirmation', body: msg}
+    );
+    if(info.accepted) {
+      res.status(201).send({message: '201 Order confirmed', msg});
+    }
+  } catch (err) {
+    msg = err;
+    res.status(400).send( { msg });
   }
 });
 
