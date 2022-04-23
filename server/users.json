@@ -1,6 +1,7 @@
 [{
     "name": "Mileto",
     "id": "578dbdea",
+    "email": "mileto@ess.com",
     "orders": [{
         "id": "2787c166",
         "products": [{
@@ -24,6 +25,7 @@
 }, {
     "name": "Mateus",
     "id": "5e9551e1",
+    "email": "mateus@ess.com",
     "orders": [{
         "id": "e78ac3ee",
         "products": [{
@@ -53,6 +55,7 @@
 }, {
     "name": "Zenio",
     "id": "11a84677",
+    "email": "zenio@ess.com",
     "orders": [{
         "id": "11b15658",
         "products": [{
