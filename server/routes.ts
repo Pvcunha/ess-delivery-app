@@ -63,20 +63,22 @@ routes.post('/user/:id/orders', function(req, res){
 });
 
 // Envia email
-routes.get('/order/confirm/:userid', async (req, res) => {
+routes.get('/payment/confirm/:userid', async (req, res) => {
   let userid = req.params.userid;
   let order: Order = <Order> req.body;
-
-  const user = usersService.getUserById(userid);
   
-  let msg: string = `Hi ${user.name}, your order has been confirmed`;
   try {
-    var info = await emailService.sendMail(
-      {name: user.name, email: user.email },
-      {subject: 'Order confirmation', body: msg}
-    );
-    if(info.accepted) {
-      res.status(201).send({message: '201 Order confirmed', msg});
+    const user = usersService.getUserById(userid);
+    if(user) {
+      var msg: string = `Hi ${user.name}, your order has been confirmed`;
+      
+      var info = await emailService.sendMail(
+        {name: user.name, email: user.email },
+        {subject: 'Order confirmation', body: msg}
+      );
+      if(info.accepted) {
+        res.status(201).send({message: '201 Order confirmed', msg});
+      }
     }
   } catch (err) {
     msg = err;

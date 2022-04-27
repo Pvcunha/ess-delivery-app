@@ -11,6 +11,8 @@ import { CarsComponent } from './cars/cars.component';
 import { CarService } from './cars/cars.service';
 import { PromotionComponent } from './promotion/promotion.component';
 import { PromotionService } from './promotion/promotion.service';
+import { EmailComponent } from './email/email.component';
+import { EmailService } from './email/email.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { PromotionService } from './promotion/promotion.service';
     NavbarComponent,
     CarsComponent,
     PromotionComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,10 +35,14 @@ import { PromotionService } from './promotion/promotion.service';
       {
         path: 'promotion',
         component: PromotionComponent
+      },
+      {
+        path: 'email',
+        component: EmailComponent
       }
     ])
   ],
-  providers: [CarService, PromotionService],
+  providers: [CarService, PromotionService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
