@@ -31,7 +31,7 @@ export class CarsComponent implements OnInit {
   
   navToEmail(): void {
     console.log(this.name);
-    let ret = this.route.navigate(['/email'], {queryParams:{data:this.name}})
+    let ret = this.route.navigate(['/email'], {queryParams:{data:this.name, car: JSON.stringify(this.car)}})
   }
 
   ngOnInit(): void {

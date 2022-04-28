@@ -9,6 +9,15 @@ const routes = Router();
 var usersService: UserService = new UserService();
 var emailService: EmailService = new EmailService();
 
+class Car {
+  name: string;
+  brand: string;
+  price: number;
+  color: string;
+
+  constructor() { }
+}
+
 fs.readFile("users.json", "utf-8", (err, data) => {
   if(err){
     console.log(err);
@@ -63,14 +72,15 @@ routes.post('/user/:id/orders', function(req, res){
 });
 
 // Envia email
-routes.get('/payment/confirm/:userid', async (req, res) => {
+routes.post('/payment/confirm/:userid', async (req, res) => {
   let userid = req.params.userid;
-  let order: Order = <Order> req.body;
-  
+  //let order: Order = <Order> req.body;
+  let car: Car = <Car> req.body;
+  console.log(car)
   try {
     const user = usersService.getUserById(userid);
     if(user) {
-      var msg: string = `Hi ${user.name}, your order has been confirmed`;
+      var msg: string = `Hi ${user.name}, your order has been confirmed ${JSON.stringify(car)}`;
       
       var info = await emailService.sendMail(
         {name: user.name, email: user.email },

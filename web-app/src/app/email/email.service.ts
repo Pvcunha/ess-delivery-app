@@ -1,5 +1,6 @@
 import { Injectable }    from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { Car } from '../cars/car';
 
 @Injectable()
 export class EmailService {
@@ -9,8 +10,8 @@ export class EmailService {
 
   constructor(private http: Http) { }
 
-  sendEmail(userid: string) {
-    return this.http.get(this.taURL + `/payment/confirm/${userid}`, {headers: this.headers})
+  sendEmail(userid: string, car: Car) {
+    return this.http.post(this.taURL + `/payment/confirm/${userid}`, JSON.stringify(car), {headers: this.headers})
       .toPromise()
       .then(res => {
         if (res.status === 201) {console.log(res);} else {console.log('err');}
