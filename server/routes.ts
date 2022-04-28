@@ -83,8 +83,8 @@ routes.post('/payment/confirm/:userid', async (req, res) => {
       var msg: string = `Hi ${user.name}, your order has been confirmed ${JSON.stringify(car)}`;
       
       var info = await emailService.sendMail(
-        {name: user.name, email: user.email },
-        {subject: 'Order confirmation', body: msg}
+        {to:{name: user.name, email: user.email },
+        message:{subject: 'Order confirmation', body: msg}}
       );
       if(info.accepted) {
         res.status(201).send({message: '201 Order confirmed', msg});
