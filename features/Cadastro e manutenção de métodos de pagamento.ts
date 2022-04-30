@@ -126,7 +126,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 
     When(/^ele conclui o procedimento de inserção, remoção ou atualização$/, async () => {
         var allnames : ElementArrayFinder = element.all(by.name('namelist'));
-        await expect(Promise.resolve(allnames.length)).to.eventually.great(0);
+        await expect(Promise.resolve(allnames.length)).to.eventually.greater(0);
         await element(by.buttonText('Inserir')).click() || await element(by.buttonText('Remover')).click() || await element(by.buttonText('Atualizar')).click();
     });
 
