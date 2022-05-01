@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { promise } from 'protractor';
 import { EmailService } from './email.service';
 import { Car } from '../cars/car';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-email',
@@ -23,12 +24,9 @@ export class EmailComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    this.route.queryParams.subscribe((params: any) => {
-      console.log(params);
-      this.userid = params.data;
-      this.car = JSON.parse(params.car);
-      this.sendEmail();
-    })
+    this.userid = LocalStorageService.instance().get('userid');
+    this.car = LocalStorageService.instance().get('car');
+    this.sendEmail()
   }
 
 }
