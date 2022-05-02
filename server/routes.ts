@@ -6,12 +6,15 @@ import { UserService } from './src/user-service';
 import { readFiles, restaurants } from './src/readFiles';
 import * as fs from 'fs';
 import { Order, Admin } from './src/users';
+import EmailService from './src/email-service';
 const routes = Router();
 
 // Inicialização
 var adminService: PromotionService = new PromotionService();
 var restaurantsService: PromotionService[] = [];
 var usersService: UserService = new UserService();
+var emailService: EmailService = new EmailService();
+
 var admins: Admin[] = [];
 
 // ----------------------------------------------------------------
@@ -348,6 +351,33 @@ routes.post('/user/:id/orders', function(req, res){
   } catch (err) {
     const { message } = err;
     res.status(400).send({ message })
+  }
+});
+
+
+// Envia email
+routes.post('/payment/confirm/:userid', async (req, res) => {
+  let userid = req.params.userid;
+  let order: Order = <Order> req.body;
+  
+  console.log(userid)
+  try {
+    const user = usersService.getUserById(userid);
+    console.log(user);
+    if(user) {
+      var msg: string = `Hi ${user.name}, your order has been confirmed ${JSON.stringify(order)}`;
+
+      var info = await emailService.sendMail(
+        {to:{name: user.name, email: user.email },
+        message:{subject: 'Order confirmation', body: msg}}
+      );
+      if(info.accepted) {
+        res.status(201).send({message: '201 Order confirmed', msg});
+      }
+    }
+  } catch (err) {
+    msg = err;
+    res.status(400).send( { msg });
   }
 });
 

@@ -13,6 +13,7 @@ export interface Order {
 export interface User {
     name: string;
     id: string;
+    email: string;
     orders: Order[];
 }
 

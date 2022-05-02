@@ -25,6 +25,8 @@ import { LogoComponent } from './views/logo/logo.component';
 import { EditComponent } from './promotion/edit/edit.component';
 import { EditService } from './promotion/edit/edit.service';
 import { LocalStorageService } from './local-storage.service';
+import { EmailComponent } from './email/email.component';
+import { EmailService } from './email/email.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { LocalStorageService } from './local-storage.service';
     OrdersComponent,
     LogoComponent,
     EditComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +105,7 @@ import { LocalStorageService } from './local-storage.service';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [PromotionService, AdminService, LoginService, EditService, LocalStorageService],
+  providers: [PromotionService, AdminService, LoginService, EditService, LocalStorageService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

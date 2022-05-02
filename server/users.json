@@ -1,6 +1,7 @@
 [{
     "name": "Mileto",
     "id": "578dbdea",
+    "email": "acrucha@braba.com",
     "orders": []
 }, {
     "name": "Mateus",
@@ -9,6 +10,7 @@
 }, {
     "name": "Zenio",
     "id": "11a84677",
+    "email": "miletinho@arrocha.lo.fi",
     "orders": [ {
         "id": "2787c166",
         "products": [{

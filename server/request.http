@@ -253,3 +253,28 @@ Content-Type: application/json
     }
 }
 
+###
+POST http://localhost:3000/payment/confirm/578dbdea
+Content-Type: application/json
+
+{
+    "order" : 
+    {
+        "products": [
+            {
+                "name": "Big Méqui",
+                "price": 15
+            },
+            {
+                "name": "Big Méqui",
+                "price": 15
+            },
+            {
+                "name": "Cheddar Méquimelt",
+                "price": 12
+            }
+        ],
+        "amount": 42,
+        "restaurant": "Mequi"
+    }
+}
