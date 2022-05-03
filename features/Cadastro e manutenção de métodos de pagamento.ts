@@ -15,8 +15,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Visualização de métodos de pagamento-------------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('TaGui');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='pagamento']").click();
     });
 
     Then(/^ele visualiza o nome "([^\"]*)" do método de pagamento padrão$/, async (name) => {
@@ -36,8 +36,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Troca de método de pagamento-------------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Pagamento');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='pagamento']").click();
     });
 
     When(/^ele seleciona a opção "([^\"]*)"$/, async (opcao) => {
@@ -78,8 +78,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Troca de método de pagamento padrão-------------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página do seu perfil$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Perfil');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='perfil']").click();
     });
 
     When(/^ele seleciona a opção "([^\"]*)"$/, async (opcao) => {
@@ -120,8 +120,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Inserção, remoção ou atualização de métodos de pagamento-----------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de inserção, remoção ou atualização de método de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Inserção') || await expect(browser.getTitle()).to.eventually.equal('Remoção') || await expect(browser.getTitle()).to.eventually.equal('Atualização');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='Inserção']").click() || await $("a[name='Remoção']").click() || await $("a[name='Atualização']").click();
     });
 
     When(/^ele conclui o procedimento de inserção, remoção ou atualização$/, async () => {
@@ -144,8 +144,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Inserção de método de pagamento inválido-----------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de inserção de método de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Inserção');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='Inserção']").click();
     });
 
     When(/^ele insere um método de pagamento inválido$/, async () => {
@@ -161,8 +161,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Inserção de sexto método de pagamento-----------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de inserção de método de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Inserção');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='Inserção']").click();
     });
 
     And(/^ele já possui cinco métodos de pagamento cadastrados$/, async () => {
@@ -183,8 +183,8 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 //--------------------------------------------Scenario: Atualização inválida de método de pagamento-----------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de atualização de método de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
-        await expect(browser.getTitle()).to.eventually.equal('Atualização');
-        //await $("a[name='metodos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('Página Principal');
+        await $("a[name='Atualização']").click();
     });
 
     When(/^o usuário atualiza um método de pagamento com dados inválidos$/, async () => {
@@ -197,4 +197,4 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-})
+});
