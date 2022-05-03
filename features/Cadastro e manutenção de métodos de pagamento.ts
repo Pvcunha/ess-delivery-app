@@ -11,7 +11,7 @@ let sameType = ((elem, type) => elem.element(by.name('typelist')).getText().then
 
 let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
 
-defineSupportCode(function ({ Given, When, Then, And }) {
+defineSupportCode(function ({ Given, When, Then}) {
 //--------------------------------------------Scenario: Visualização de métodos de pagamento-------------------------------------------------------------------------------------------------------------------------------
     Given(/^o usuário está na página de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
@@ -24,7 +24,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
         allnames.filter(elem => sameName(elem,name)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 
-    And(/^no caso do método padrão ser o "([^\"]*)", ele visualiza os últimos quatro dígitos do número "([^\"]*)" do cartão além do nome "([^\"]*)" do método$/, async (type, number, name) => {
+    Then(/^no caso do método padrão ser o "([^\"]*)", ele visualiza os últimos quatro dígitos do número "([^\"]*)" do cartão além do nome "([^\"]*)" do método$/, async (type, number, name) => {
         if(type == "Cartão de Crédito" || type == "Cartão de Débito"){
             var allnames : ElementArrayFinder = element.all(by.name('namelist'));
             var allnumbers : ElementArrayFinder = element.all(by.name('numberlist'));
@@ -41,28 +41,28 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 
     When(/^ele seleciona a opção "([^\"]*)"$/, async (opcao) => {
-        await element(by.buttonText(opcao)).click();
+        await element(by.buttonText(<string>opcao)).click();
     });
 
-    And(/^após os nomes "([^\"]*)", "([^\"]*)", "([^\"]*)", "([^\"]*)" dos outros métodos de pagamento, exceto o nome do método padrão, aparecerem como opções selecionáveis, ele seleciona "([^\"]*)" dos métodos"$/, async (name1, name2, name3, name4, name5) => {
+    When(/^após os nomes "([^\"]*)", "([^\"]*)", "([^\"]*)", "([^\"]*)" dos outros métodos de pagamento, exceto o nome do método padrão, aparecerem como opções selecionáveis, ele seleciona "([^\"]*)" dos métodos"$/, async (name1, name2, name3, name4, name5) => {
         var allnames : ElementArrayFinder = element.all(by.name('namelist'));
         allnames.filter(elem => sameName(elem,name1)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name2)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name3)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name4)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         if(name5 == name1){
-            await element(by.buttonText(name1)).click();
+            await element(by.buttonText(<string>name1)).click();
         }
         else{
             if(name5 == name2){
-                await element(by.buttonText(name2)).click();
+                await element(by.buttonText(<string>name2)).click();
             }
             else{
                 if(name5 == name3){
-                    await element(by.buttonText(name3)).click();
+                    await element(by.buttonText(<string>name3)).click();
                 }
                 else{
-                    await element(by.buttonText(name4)).click();
+                    await element(by.buttonText(<string>name4)).click();
                 }
             }
         }
@@ -83,28 +83,28 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 
     When(/^ele seleciona a opção "([^\"]*)"$/, async (opcao) => {
-        await element(by.buttonText(opcao)).click();
+        await element(by.buttonText(<string>opcao)).click();
     });
 
-    And(/^após os nomes "([^\"]*)", "([^\"]*)", "([^\"]*)", "([^\"]*)" dos outros métodos de pagamento, exceto o nome do método padrão, aparecerem como opções selecionáveis, ele seleciona "([^\"]*)" dos métodos"$/, async (name1, name2, name3, name4, name5) => {
+    When(/^após os nomes "([^\"]*)", "([^\"]*)", "([^\"]*)", "([^\"]*)" dos outros métodos de pagamento, exceto o nome do método padrão, aparecerem como opções selecionáveis, ele seleciona "([^\"]*)" dos métodos"$/, async (name1, name2, name3, name4, name5) => {
         var allnames : ElementArrayFinder = element.all(by.name('namelist'));
         allnames.filter(elem => sameName(elem,name1)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name2)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name3)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         allnames.filter(elem => sameName(elem,name4)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
         if(name5 == name1){
-            await element(by.buttonText(name1)).click();
+            await element(by.buttonText(<string>name1)).click();
         }
         else{
             if(name5 == name2){
-                await element(by.buttonText(name2)).click();
+                await element(by.buttonText(<string>name2)).click();
             }
             else{
                 if(name5 == name3){
-                    await element(by.buttonText(name3)).click();
+                    await element(by.buttonText(<string>name3)).click();
                 }
                 else{
-                    await element(by.buttonText(name4)).click();
+                    await element(by.buttonText(<string>name4)).click();
                 }
             }
         }
@@ -112,7 +112,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
 
     Then(/^uma mensagem de troca de método padrão realizado com sucesso aparece na tela$/, async () => {
         await expect(browser.getTitle()).to.eventually.equal('Perfil');
-        var allelementos : ElementArrayFinder = element.all();
+        var allelementos : ElementArrayFinder = element.all('sucesso');
         allelementos.filter(elem => sameName(elem,'sucesso')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,22 +121,22 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     Given(/^o usuário está na página de inserção, remoção ou atualização de método de pagamento$/, async () => {
         await browser.get("http://localhost:3000/");
         await expect(browser.getTitle()).to.eventually.equal('Página Principal');
-        await $("a[name='Inserção']").click() || await $("a[name='Remoção']").click() || await $("a[name='Atualização']").click();
+        await [$("a[name='Inserção']").click() || $("a[name='Remoção']").click() || $("a[name='Atualização']").click()];
     });
 
     When(/^ele conclui o procedimento de inserção, remoção ou atualização$/, async () => {
         var allnames : ElementArrayFinder = element.all(by.name('namelist'));
         await expect(Promise.resolve(allnames.length)).to.eventually.not.equal(0);
-        await element(by.buttonText('Inserir')).click() || await element(by.buttonText('Remover')).click() || await element(by.buttonText('Atualizar')).click();
+        await [element(by.buttonText('Inserir')).click() || element(by.buttonText('Remover')).click() || await element(by.buttonText('Atualizar')).click()];
     });
 
     Then(/^a senha do usuário é solicitada$/, async () => {
-        var allelementos : ElementArrayFinder = element.all();
+        var allelementos : ElementArrayFinder = element.all('senha');
         allelementos.filter(elem => sameName(elem,'senha')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 
-    And(/^a escrita da palavra "CONFIRMAR" é solicitada$/, async () => {
-        var allelementos : ElementArrayFinder = element.all();
+    Then(/^a escrita da palavra "CONFIRMAR" é solicitada$/, async () => {
+        var allelementos : ElementArrayFinder = element.all('CONFIRMAR');
         allelementos.filter(elem => sameName(elem,'CONFIRMAR')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 
     Then(/^uma mensagem notificando método de pagamento inválido e solicitando que o procedimento seja refeito aparece na tela$/, async () => {
-        var allelementos : ElementArrayFinder = element.all();
+        var allelementos : ElementArrayFinder = element.all('inválido');
         allelementos.filter(elem => sameName(elem,'inválido')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -165,7 +165,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
         await $("a[name='Inserção']").click();
     });
 
-    And(/^ele já possui cinco métodos de pagamento cadastrados$/, async () => {
+    Given(/^ele já possui cinco métodos de pagamento cadastrados$/, async () => {
         var allnames : ElementArrayFinder = element.all(by.name('namelist'));
         await expect(Promise.resolve(allnames.length)).to.eventually.equal(5);
     });
@@ -175,7 +175,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 
     Then(/^uma mensagem informando limite de métodos de pagamento aparece na tela$/, async () => {
-        var allelementos : ElementArrayFinder = element.all();
+        var allelementos : ElementArrayFinder = element.all('limite');
         allelementos.filter(elem => sameName(elem,'limite')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ defineSupportCode(function ({ Given, When, Then, And }) {
     });
 
     Then(/^uma mensagem notificando método de pagamento inválido e solicitando que o procedimento seja refeito aparece na tela$/, async () => {
-        var allelementos : ElementArrayFinder = element.all();
+        var allelementos : ElementArrayFinder = element.all('inválido');
         allelementos.filter(elem => sameName(elem,'inválido')).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
