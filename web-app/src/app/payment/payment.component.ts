@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PaymentMethod } from '../classes/payment-method';
 import { User } from '../admin/user';
 import { PaymentService } from './payment.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-payment',
@@ -23,7 +24,7 @@ export class PaymentComponent implements OnInit {
 
   mainName:string;
 
-  constructor(private router:Router,private service: PaymentService) {
+  constructor(private router:Router,private service: PaymentService, private serviceTitle: Title) {
    
   }
 
@@ -71,7 +72,7 @@ export class PaymentComponent implements OnInit {
   }
   
   ngOnInit() {
-    
+    this.serviceTitle.setTitle('Payment')
     this.user = JSON.parse(localStorage.getItem("user"));
     this.mainPay = JSON.parse(localStorage.getItem("mainPay"));
   

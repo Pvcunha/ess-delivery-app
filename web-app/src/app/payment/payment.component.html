@@ -25,7 +25,7 @@
   </div>
   <h3>Pagamento Padrão:</h3>
   <div class="selection" > 
-    <select class="options" id ="mySelect" [(ngModel)]="mainName" (click)="changePay()" disableRipple>
+    <select class="options" id ="mySelect" [(ngModel)]="mainName" disableRipple>
         <option *ngFor="let pagamento of user.paymentMethods" [value]="pagamento.name">
           {{pagamento.name}}
         </option>
