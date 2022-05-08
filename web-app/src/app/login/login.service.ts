@@ -1,9 +1,9 @@
 import { Component, Injectable, Inject }    from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { Admin } from '../admin/admin';
-import { Coupon } from '../admin/coupon';
-import { Restaurant } from '../admin/restaurant';
-import { User } from '../admin/user';
+import { Admin } from '../interfaces/admin';
+import { Coupon } from '../interfaces/coupon';
+import { Restaurant } from '../interfaces/restaurant';
+import { User } from '../interfaces/user';
 
 @Injectable()
 export class LoginService {
