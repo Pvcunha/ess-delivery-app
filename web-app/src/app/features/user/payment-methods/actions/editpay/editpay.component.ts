@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PaymentMethod } from '../../classes/payment-method';
+import { PaymentMethod } from 'src/app/features/user/payment-methods/classes/payment-method';
 import { User } from '../../../../../interfaces/user';
 import { EditpayService } from './editpay.service';
 

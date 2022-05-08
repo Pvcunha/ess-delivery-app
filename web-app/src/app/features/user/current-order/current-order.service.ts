@@ -1,9 +1,9 @@
 import { Injectable }    from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Alert } from 'selenium-webdriver';
-import { Restaurant } from 'src/app/admin/restaurant';
+import { Restaurant } from 'src/app/interfaces/restaurant';
 import { Order } from '../orders/order';
-import { User } from '../../admin/user'
+import { User } from 'src/app/interfaces/user'
 
 @Injectable()
 export class CurrentOrderService {

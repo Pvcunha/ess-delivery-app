@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../admin/user';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-addpayment',

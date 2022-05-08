@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PaymentMethod } from '../classes/payment-method';
-import { User } from '../admin/user';
+import { PaymentMethod } from 'src/app/features/user/payment-methods/classes/payment-method';
+import { User } from 'src/app/interfaces/user';
 import { ErasepayService } from './erasepay.service';
 
 @Component({

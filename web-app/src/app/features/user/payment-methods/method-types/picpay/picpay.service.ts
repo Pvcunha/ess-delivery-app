@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http,Headers  } from '@angular/http';
-import { PaymentMethod } from '../classes/payment-method';;
-import { User } from '../admin/user';
+import { PaymentMethod } from 'src/app/features/user/payment-methods/classes/payment-method';;
+import { User } from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
