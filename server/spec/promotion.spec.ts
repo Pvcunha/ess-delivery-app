@@ -1,6 +1,6 @@
 import "jasmine";
 import request = require("request-promise");
-import { Coupon } from "../src/coupon";
+import { Coupon } from "../src/classes/coupon";
 
 const baseUrl = "http://localhost:3000";
 

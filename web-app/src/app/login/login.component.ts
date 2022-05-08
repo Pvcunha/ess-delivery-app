@@ -1,10 +1,7 @@
 import { Component, OnInit, setTestabilityGetter } from '@angular/core';
-import { query } from '@angular/animations';
-import { NgModule } from '@angular/core';
-import { Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { LocalStorageService } from 'src/app/local-storage.service';
-import { Coupon } from '../admin/coupon';
 import { Title } from '@angular/platform-browser';
 
 

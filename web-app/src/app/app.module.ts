@@ -10,45 +10,45 @@ import { NgxCurrencyModule } from "ngx-currency";
 import { MatSelectModule } from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PromotionComponent } from './promotion/promotion.component';
-import { PromotionService } from './promotion/promotion.service';
-import { TableComponent } from './views/table/table.component';
+import { PromotionComponent } from './features/promotion/promotion.component';
+import { PromotionService } from './features/promotion/promotion.service';
+import { TableComponent } from './features/admin/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminComponent } from './admin/admin.component';
-import { AdminService } from './admin/admin.service';
+import { AdminComponent } from './features/admin/admin.component';
+import { AdminService } from './features/admin/admin.service';
 import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './user/profile/profile.component';
+import { ProfileComponent } from './features/user/profile/profile.component';
 import { BarComponent } from './views/bar/bar.component';
-import { OrdersComponent } from './user/orders/orders.component';
+import { OrdersComponent } from './features/user/orders/orders.component';
 import { LoginService } from './login/login.service';
-import { LogoComponent } from './views/logo/logo.component';
-import { EditComponent } from './promotion/edit/edit.component';
-import { EditService } from './promotion/edit/edit.service';
+import { EditComponent } from './features/promotion/edit/edit.component';
+import { EditService } from './features/promotion/edit/edit.service';
 import { LocalStorageService } from './local-storage.service';
 
-import { CurrentOrderComponent } from './user/current-order/current-order.component';
-import { OrdersService } from './user/orders/orders.service';
-import { CurrentOrderService } from './user/current-order/current-order.service';
+import { CurrentOrderComponent } from './features/user/current-order/current-order.component';
+import { OrdersService } from './features/user/orders/orders.service';
+import { CurrentOrderService } from './features/user/current-order/current-order.service';
 import { LogoutComponent } from './views/logout/logout.component';
 
-import { EmailComponent } from './email/email.component';
-import { EmailService } from './email/email.service';
+import { EmailComponent } from './features/email/email.component';
+import { EmailService } from './features/email/email.service';
 
-import { PaymentComponent } from './payment/payment.component';
-import { AddpaymentComponent } from './addpayment/addpayment.component';
-import { InsertcreditComponent } from './insertcredit/insertcredit.component';
-import { InsertdebitComponent } from './insertdebit/insertdebit.component';
-import { PaymentService } from './payment/payment.service';
-import { InsertcreditService } from './insertcredit/insertcredit.service';
-import { InsertdebitService } from './insertdebit/insertdebit.service';
-import { PaypalComponent } from './paypal/paypal.component';
-import { ErasepayComponent } from './erasepay/erasepay.component';
-import { PaypalService } from './paypal/paypal.service';
-import { PicpayService } from './picpay/picpay.service';
-import { ErasepayService } from './erasepay/erasepay.service';
-import { PicpayComponent } from './picpay/picpay.component';
-import { EditpayComponent } from './editpay/editpay.component';
-import { EditpayService } from './editpay/editpay.service';
+import { PaymentComponent } from './features/user/payment-methods/payment/payment.component';
+import { AddpaymentComponent } from './features/user/payment-methods/actions/addpayment/addpayment.component';
+import { InsertcreditComponent } from './features/user/payment-methods/method-types/insertcredit/insertcredit.component';
+import { InsertdebitComponent } from './features/user/payment-methods/method-types/insertdebit/insertdebit.component';
+import { PaymentService } from './features/user/payment-methods/payment/payment.service';
+import { InsertcreditService } from './features/user/payment-methods/method-types/insertcredit/insertcredit.service';
+import { InsertdebitService } from './features/user/payment-methods/method-types/insertdebit/insertdebit.service';
+import { PaypalComponent } from './features/user/payment-methods/method-types/paypal/paypal.component';
+import { ErasepayComponent } from './features/user/payment-methods/actions/erasepay/erasepay.component';
+import { PaypalService } from './features/user/payment-methods/method-types/paypal/paypal.service';
+import { PicpayService } from './features/user/payment-methods/method-types/picpay/picpay.service';
+import { ErasepayService } from './features/user/payment-methods/actions/erasepay/erasepay.service';
+import { PicpayComponent } from './features/user/payment-methods/method-types/picpay/picpay.component';
+import { EditpayComponent } from './features/user/payment-methods/actions/editpay/editpay.component';
+import { EditpayService } from './features/user/payment-methods/actions/editpay/editpay.service';
+import { LogoComponent } from './views/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,6 @@ import { EditpayService } from './editpay/editpay.service';
     ProfileComponent,
     BarComponent,
     OrdersComponent,
-    LogoComponent,
     EditComponent,
     CurrentOrderComponent,
     LogoutComponent,
@@ -74,7 +73,8 @@ import { EditpayService } from './editpay/editpay.service';
     PaypalComponent,
     PicpayComponent,
     ErasepayComponent,
-    EditpayComponent
+    EditpayComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

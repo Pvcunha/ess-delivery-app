@@ -1,6 +1,5 @@
 import "jasmine";
 import request = require("request-promise");
-import { PaymentMethod } from "../src/payment-method";
 
 const baseUrl = "http://localhost:3000";
 
